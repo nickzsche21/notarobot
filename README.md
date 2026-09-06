@@ -1,5 +1,7 @@
 # NOT A ROBOT
 
+### → [not-a-robot.vercel.app](https://not-a-robot.vercel.app)
+
 A CAPTCHA that suspects **you**.
 
 Eight verification levels. A suspicion meter that goes **up when you do well** —
@@ -59,7 +61,8 @@ Finishing gives you `/?h=<score>`. That route generates its own OG image at
 `/api/og?h=<score>`, so a pasted link unfurls with the verdict the sharer
 actually got instead of a logo.
 
-Set `NEXT_PUBLIC_SITE_URL` to your deployed origin so absolute OG URLs resolve.
+Set `NEXT_PUBLIC_SITE_URL` to your deployed origin so absolute OG URLs resolve —
+it is inlined at build time, so changing it needs a redeploy, not just a restart.
 
 ## License
 
