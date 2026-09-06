@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+:root {
+  --paper: rgb(246, 247, 249);
+  --ink: rgb(32, 33, 36);
+  --muted: rgb(95, 99, 104);
+  --line: rgb(218, 220, 224);
+  --accent: rgb(26, 115, 232);
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  transition: background 700ms ease, color 700ms ease;
+}
+
+.mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+/* .stage's palette is injected from JS (see lib/humanity.ts paletteFor) so the
+   live UI and the OG share card can never drift apart. */
+
+@keyframes shake {
+  0%, 100% { transform: translate(0, 0); }
+  20% { transform: translate(-2px, 1px); }
+  40% { transform: translate(2px, -1px); }
+  60% { transform: translate(-1px, -1px); }
+  80% { transform: translate(1px, 1px); }
+}
+.shake { animation: shake 220ms ease-in-out; }
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+.caret::after {
+  content: "▍";
+  animation: blink 1s step-end infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shake { animation: none; }
+  .caret::after { animation: none; }
+}
